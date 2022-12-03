@@ -9,7 +9,7 @@ import Foundation
 
 struct API {
     static func fetch(indicator: Indicator) async throws -> [Item] {
-        let url: URL = .init(string: "https://financialmodelingprep.com/api/v4/economic?name=\(indicator.rawValue)&to=2022-12-10&apikey=\(APIKey.key)")!
+        let url: URL = .init(string: "https://financialmodelingprep.com/api/v4/economic?name=\(indicator.rawValue)&apikey=\(APIKey.key)")!
         let (data, _) = try await URLSession.shared.data(from: url)
         let GDPs = try JSONDecoder().decode([ItemDTO].self, from: data)
         return try GDPs.reversed().map { try Item($0) }
