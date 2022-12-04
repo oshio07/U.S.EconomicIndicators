@@ -30,7 +30,7 @@ struct DetailView: View {
             }
             Spacer()
         }
-        .padding()
+        .padding(.horizontal)
         .navigationTitle(indicator.name(isEn: false))
         .onAppear(perform: onAppear)
         .alert("エラー", isPresented: $didError, actions: {})
@@ -56,22 +56,20 @@ struct DetailView: View {
     }
     
     private var activeItemValue: some View {
-        let dateFormatter: DateFormatter = {
-            let df = DateFormatter()
-            df.locale = Locale(identifier: "ja_JP")
-            df.dateStyle = .short
-            df.timeStyle = .none
-            return df
-        }()
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "ja_JP")
+        dateFormatter.dateStyle = .short
+        dateFormatter.timeStyle = .none
         
         return HStack {
-            Text(dateFormatter.string(from: activeItem.date))                                     .foregroundStyle(.secondary)
+            Text(dateFormatter.string(from: activeItem.date))
+                .foregroundStyle(.secondary)
             Text(String(activeItem.value))
                 .font(.title2.bold())
         }
     }
     
-    private func lineChart(_ items: [Item])-> some View {
+    private func lineChart(_ items: [Item]) -> some View {
         Chart(items) {
             LineMark(
                 x: .value("date", $0.date),

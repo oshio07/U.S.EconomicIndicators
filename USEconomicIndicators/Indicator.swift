@@ -8,7 +8,7 @@
 import Foundation
 
 enum Indicator: String {
-    case GDP, realGDP,  realGDPPerCapita,  federalFunds,  CPI,  retailSales,  consumerSentiment,  durableGoods,  unemploymentRate,  totalNonfarmPayroll,  industrialProductionTotalIndex,  newPrivatelyOwnedHousingUnitsStartedTotalUnits,  totalVehicleSales
+    case GDP, realGDP,  realGDPPerCapita, federalFunds, CPI, retailSales, consumerSentiment, durableGoods, unemploymentRate, totalNonfarmPayroll, industrialProductionTotalIndex, newPrivatelyOwnedHousingUnitsStartedTotalUnits, totalVehicleSales
     
     typealias Month = Int
     var updateCycle: Month {
