@@ -88,18 +88,13 @@ struct DetailView: View {
                     .gesture(
                         DragGesture(minimumDistance: 0)
                             .onChanged { value in
-                                if let date: Date = proxy.value(atX: value.location.x) {
-                                    var minDistance: TimeInterval = .infinity
-                                    var index: Int = 0
-                                    for i in items.indices {
-                                        let distance = abs(items[i].date.distance(to: date))
-                                        if distance < minDistance {
-                                            minDistance = distance
-                                            index = i
-                                        }
-                                    }
-                                    activeItem = items[index]
+                                guard let date: Date = proxy.value(atX: value.location.x) else { return }
+                                if let item = items.min(by: {
+                                    abs($0.date.distance(to: date)) < abs($1.date.distance(to: date))
+                                }) {
+                                    activeItem = item
                                 }
+                                
                             }
                     )
             }
