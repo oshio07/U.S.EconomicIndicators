@@ -57,9 +57,7 @@ struct DetailView: View {
     
     private var activeItemValue: some View {
         let dateFormatter = DateFormatter()
-        dateFormatter.locale = Locale(identifier: "ja_JP")
-        dateFormatter.dateStyle = .short
-        dateFormatter.timeStyle = .none
+        dateFormatter.dateFormat = "yyyy/MM"
         
         return HStack {
             Text(dateFormatter.string(from: activeItem.date))
@@ -94,7 +92,6 @@ struct DetailView: View {
                                 }) {
                                     activeItem = item
                                 }
-                                
                             }
                     )
             }
@@ -103,11 +100,11 @@ struct DetailView: View {
     }
     
     private func onAppear() {
+        isLoading = true; defer { isLoading = false }
         Task {
             do {
-                isLoading = true; defer { isLoading = false }
                 items = try await API.fetch(indicator: indicator)
-                activeItem = items.last!
+                if let lastItem = items.last { activeItem = lastItem }
                 itemCountToDisplay = items.count
             } catch {
                 didError = true
