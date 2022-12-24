@@ -14,7 +14,6 @@
 		B488C36A293B04BC00EBAA64 /* Indicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B488C369293B04BC00EBAA64 /* Indicator.swift */; };
 		B488C36C293B104500EBAA64 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B488C36B293B104500EBAA64 /* DetailView.swift */; };
 		B488C370293B1D9200EBAA64 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = B488C36F293B1D9200EBAA64 /* Item.swift */; };
-		B488C372293B20E600EBAA64 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = B488C371293B20E600EBAA64 /* API.swift */; };
 		B488C374293B237E00EBAA64 /* Period.swift in Sources */ = {isa = PBXBuildFile; fileRef = B488C373293B237E00EBAA64 /* Period.swift */; };
 		B488C376293B415E00EBAA64 /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = B488C375293B415E00EBAA64 /* APIKey.swift */; };
 /* End PBXBuildFile section */
@@ -28,7 +27,6 @@
 		B488C369293B04BC00EBAA64 /* Indicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Indicator.swift; sourceTree = "<group>"; };
 		B488C36B293B104500EBAA64 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		B488C36F293B1D9200EBAA64 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
-		B488C371293B20E600EBAA64 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		B488C373293B237E00EBAA64 /* Period.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Period.swift; sourceTree = "<group>"; };
 		B488C375293B415E00EBAA64 /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -68,7 +66,6 @@
 				B488C373293B237E00EBAA64 /* Period.swift */,
 				B488C36F293B1D9200EBAA64 /* Item.swift */,
 				B488C369293B04BC00EBAA64 /* Indicator.swift */,
-				B488C371293B20E600EBAA64 /* API.swift */,
 				B488C375293B415E00EBAA64 /* APIKey.swift */,
 				B488C35F293B03C500EBAA64 /* Assets.xcassets */,
 				B488C361293B03C500EBAA64 /* Preview Content */,
@@ -170,7 +167,6 @@
 				B488C36A293B04BC00EBAA64 /* Indicator.swift in Sources */,
 				B488C35C293B03C400EBAA64 /* USEconomicIndicatorsApp.swift in Sources */,
 				B488C370293B1D9200EBAA64 /* Item.swift in Sources */,
-				B488C372293B20E600EBAA64 /* API.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

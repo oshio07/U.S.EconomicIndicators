@@ -100,15 +100,41 @@ struct DetailView: View {
     }
     
     private func onAppear() {
-        isLoading = true; defer { isLoading = false }
         Task {
+            isLoading = true; defer { isLoading = false }
             do {
-                items = try await API.fetch(indicator: indicator)
+                items = try await fetch(indicator: indicator)
                 if let lastItem = items.last { activeItem = lastItem }
                 itemCountToDisplay = items.count
             } catch {
                 didError = true
             }
+        }
+    }
+    
+    private func fetch(indicator: Indicator) async throws -> [Item] {
+        let url: URL = .init(string: "https://financialmodelingprep.com/api/v4/economic?name=\(indicator.rawValue)&apikey=\(APIKey.key)")!
+        let (data, _) = try await URLSession.shared.data(from: url)
+        let itemDTOs = try JSONDecoder().decode([ItemDTO].self, from: data)
+        return try itemDTOs.reversed().map { try Item($0) }
+    }
+}
+
+private struct ItemDTO: Decodable, Hashable {
+    let date: String
+    let value: Double
+}
+
+private extension Item {
+    init(_ itemDTO: ItemDTO) throws {
+        let formatter: DateFormatter = .init()
+        formatter.dateFormat = "yyyy-MM-dd"
+        
+        if let date = formatter.date(from: itemDTO.date) {
+            self.date = date
+            self.value = itemDTO.value
+        } else {
+            throw NSError()
         }
     }
 }
